@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Visualizer</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sound Visualizer</h1>
+        </header>
+        
+        <div class="controls">
+            <button id="startBtn" class="btn"><i class="fas fa-microphone"></i> Start Microphone</button>
+            <button id="stopBtn" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
+            
+            <div class="visualizer-select">
+                <label for="visualizer-type">Visualization Type:</label>
+                <select id="visualizer-type">
+                    <option value="bars">Frequency Bars</option>
+                    <option value="wave">Waveform</option>
+                    <option value="circular">Circular</option>
+                    <option value="particles">Particles</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="visualizer-container">
+            <canvas id="visualizer"></canvas>
+        </div>
+        
+        <div class="settings-panel">
+            <h3>Visualizer Settings</h3>
+            <div class="settings-group" id="general-settings">
+                <div class="setting">
+                    <label for="sensitivity">Sensitivity:</label>
+                    <input type="range" id="sensitivity" min="1" max="5" value="2" step="0.1">
+                </div>
+                <div class="setting">
+                    <label for="color-scheme">Color Scheme:</label>
+                    <select id="color-scheme">
+                        <option value="gradient1">Neon</option>
+                        <option value="gradient2">Sunset</option>
+                        <option value="gradient3">Ocean</option>
+                        <option value="monochrome">Monochrome</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Created with Web Audio API | <a href="#" id="about-link">About</a></p>
+    </footer>
+    
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About This Visualizer</h2>
+            <p>This audio visualizer uses the Web Audio API to analyze microphone input and create visual representations of the sound.</p>
+            <p>You can choose between different visualization types:</p>
+            <ul>
+                <li><strong>Frequency Bars</strong>: Displays amplitude across frequency bands</li>
+                <li><strong>Waveform</strong>: Shows the audio waveform in real time</li>
+                <li><strong>Circular</strong>: A radial visualization that pulses with the sound</li>
+                <li><strong>Particles</strong>: Dynamic particles that react to audio frequencies</li>
+            </ul>
+            <p>Adjust the sensitivity and color schemes to customize your experience.</p>
+        </div>
+    </div>
+
+    <script src="assets/js/visualizers.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
